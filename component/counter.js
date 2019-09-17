@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
+import { increment, decrement, reset } from '../actions';
+import { connect } from 'react-redux'
+
+const mapStateToProps = (state) => {
+   return {
+      counter: state
+   };
+  };
+
+  
+const mapDispatchToProps = (dispatch) => {
+   return {
+      increment: () => dispatch(increment()),
+      decrement: () => dispatch(decrement()),
+      reset: () => dispatch(reset())
+   };
+};
+
 class Counter extends Component {
    render() {
-      const {counter,increment,decrement,reset} = this.props;
+    const {counter,increment,decrement,reset} = this.props;
       return (
          <div className = "App">
             <div>{counter}</div>
@@ -16,4 +34,4 @@ class Counter extends Component {
       );
    }
 }
-export default Counter;
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
