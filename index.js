@@ -2,9 +2,9 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux';
-import reducer from '../src/reducer/index'
-import App from '../src/App'
-import './index.css';
+import reducer from './reducer/index'
+import App from './App'
+import './style.css';
 
 const store = createStore(
    reducer,
